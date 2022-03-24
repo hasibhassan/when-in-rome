@@ -1,3 +1,8 @@
+/**
+ * toRoman - recursive solution, for every subproblem go through the list of edge cases in order to find the corresponding roman numeral string, with 0 as the base case, and integrate it into the final result
+ * @param num
+ * @returns {string}
+ */
 export default function toRoman(num: number): string | undefined {
   if (num < 1) return ''
   if (num >= 1000) return 'M' + toRoman(num - 1000)

@@ -1,13 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import toRoman from '../../utils/toRoman'
 
 type Data = {
-  name: string
+  roman: string | undefined
 }
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  const result = toRoman(req.body.number)
+
+  res.status(200).json({ roman: result })
 }

@@ -95,9 +95,19 @@ export default function MathInput() {
         />
       </div>
       <div>
-        {secondText !== '' ? `Roman Numeral: ${result.roman}` : secondText}
+        {secondText !== ''
+          ? typeof result.roman === 'string'
+            ? `Roman Numeral: ${result.roman}`
+            : ''
+          : secondText}
       </div>
-      <div>{secondText !== '' ? `Number: ${result.number}` : secondText}</div>
+      <div>
+        {secondText !== ''
+          ? typeof result.number === 'number'
+            ? `Number: ${result.number}`
+            : ''
+          : secondText}
+      </div>
     </div>
   )
 }

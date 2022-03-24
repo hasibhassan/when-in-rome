@@ -57,7 +57,17 @@ export default function Input() {
           placeholder={type === 'roman' ? 'E.g. "IV"' : 'E.g. 567'}
         />
       </div>
-      <h1>{value !== '' ? `Result: ${result}` : value}</h1>
+      <h1>
+        {value !== ''
+          ? type === 'roman'
+            ? typeof result === 'number'
+              ? `Result: ${result}`
+              : ''
+            : typeof result === 'string'
+            ? `Result: ${result}`
+            : ''
+          : value}
+      </h1>
     </div>
   )
 }
